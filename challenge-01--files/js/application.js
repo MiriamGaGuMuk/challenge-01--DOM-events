@@ -82,23 +82,25 @@ var board = function() {
 }
 
 //function to generate positions of two submarines
-var randomCell = function(valueSubOne, valueSubTwo) {
+var randomCell = function(num1, num2) {
 
   //call board function to generate dinamically board
   // board();
   
   //get positions of two submarines
 
-  var randomNumber = Math.random();
-  var range = -valueSubOne + valueSubTwo;
-  
-  console.log(randomNumber);
-
   var valueSubOne = "c" + subOne;
   var valueSubTwo = "c" + subTwo;
-  valueSubOne + Math.floor (randomNumber * range)
+  var randomNumber = Math.random();
+  var range = -num1 + num2;
   
+  return num1 + Math.floor (randomNumber * range)
+
 }
+  var subOne = randomCell(1,9);
+  var subTwo = randomCell(1,9);
+  
+  // console.log(subOne);
 
 
 //function to execute DOM event for starting game
@@ -106,13 +108,10 @@ function executeGame() {
 
   let btnStart = document.getElementById("play");
   document.addEventListener("click", startGame) 
-    
- 
-
   
 }
 
-  executeGame();
+executeGame();
 
 
 
