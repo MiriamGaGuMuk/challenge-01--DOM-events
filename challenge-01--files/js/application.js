@@ -27,7 +27,11 @@
 //startGame function
 function startGame() {
   //variable with positions of submarines for destroying them
-
+  
+  let tries = 0;
+  let failTries = 0; 
+  
+  target = document.addEventListener();
   board();
   randomCell();
 
