@@ -28,7 +28,7 @@
 function startGame() {
   //variable with positions of submarines for destroying them
 
-  // board();
+  board();
 
 
   //eventClick function to detect DOM event for every cell board
@@ -82,23 +82,21 @@ var board = function() {
 }
 
 //function to generate positions of two submarines
-var randomCell = function() {
+var randomCell = function(valueSubOne, valueSubTwo) {
 
   //call board function to generate dinamically board
-  board();
+  // board();
   
   //get positions of two submarines
+
+  var randomNumber = Math.random();
+  var range = -valueSubOne + valueSubTwo;
   
+  console.log(randomNumber);
 
   var valueSubOne = "c" + subOne;
   var valueSubTwo = "c" + subTwo;
-
-
-
-
-
-  
-
+  valueSubOne + Math.floor (randomNumber * range)
   
 }
 
