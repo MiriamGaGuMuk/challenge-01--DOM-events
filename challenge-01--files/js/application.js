@@ -29,14 +29,16 @@ function startGame() {
   //variable with positions of submarines for destroying them
 
   board();
-
+  randomCell();
 
   //eventClick function to detect DOM event for every cell board
+  document.querySelector('#container');
+  
   
   //eventClick function
   function eventClick(submarinePositions) {
     //What should go here to detect DOM event for every cell board?
-
+    document.addEventListener('click', randomCell);
       
      
       //What should go here for matching values of player with submarines positions?
@@ -46,9 +48,15 @@ function startGame() {
   //matcher function
   function matcher(playerValue, subValue) {
     //What conditional should go here to alert 'Game Over'?
-
+    if(tries === 3 && < 2){
+      alert("Game Over");
+    }
     //What conditional should go here for matching values of player with submarines positions
     //and show 'red' cells and 'X' cells?
+    if(playerValue === subValue){
+      
+    }
+    
 
     //What should go here for getting destroyed submarines or winner?
     
@@ -59,11 +67,13 @@ function startGame() {
 function score(value) {
   if (value <= 2){
     //What should go here to show the number of submarines destroyed?
+     
 
   }
   if (value == 2){
     //What should go here to show if the player is a winner?
-
+    
+    document.querySelector('#win').innerHTML = ("WINNER!");  
   }
 }
 
@@ -73,7 +83,7 @@ var board = function() {
  
   for (let i = 0; i < 9; i++) {
     
-    var str = '<div class="cell" id='+i+'></div>' //not like templete string, but this als work with the same syntaxis of HTML
+    var str = '<div class="cell" id='+i+' id="c"></div>' //not like templete string, but this als work with the same syntaxis of HTML
     document.querySelector("#container").innerHTML += str; //It's better to use queryselector 
 
   }
@@ -82,27 +92,22 @@ var board = function() {
 }
 
 //function to generate positions of two submarines
-var randomCell = function(num1, num2) {
-
+var randomCell = function() {
   //call board function to generate dinamically board
   // board();
-  
   //get positions of two submarines
+ 
+  var subOne = Math.floor(Math.random() * 10)
+  var subTwo = Math.floor(Math.random() * 10);
 
   var valueSubOne = "c" + subOne;
   var valueSubTwo = "c" + subTwo;
-  var randomNumber = Math.random();
-  var range = -num1 + num2;
+
+  return [valueSubOne, valueSubTwo];
   
-  return num1 + Math.floor (randomNumber * range)
 
 }
-  var subOne = randomCell(1,9);
-  var subTwo = randomCell(1,9);
-  
-  // console.log(subOne);
-
-
+ 
 //function to execute DOM event for starting game
 function executeGame() {
 
